@@ -5,12 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
+public enum NoteFrequencies
+{
+    C = 131,
+    D = 148,
+    E = 165,
+    F = 175,
+    G = 196,
+    A = 220,
+    B = 247
+}
+
 namespace MusicPlayer
 {
     public class MusicPlayer
     {
-        private int frequency;
-        private int duration;
+        private int[] frequencies;
+        private int[] duration;
 
         public MusicPlayer()
         {
@@ -20,10 +31,10 @@ namespace MusicPlayer
         /// <summary>
         /// 1 value - frequency in hertz, 2 - duration in seconds
         /// </summary>
-        public MusicPlayer(int frequency, int duration)
+        public MusicPlayer(int frequency, float duration)
         {
             this.frequency = frequency;
-            this.duration = duration * 1000;
+            this.duration = (int)(duration * 1000);
         }
 
         public int Frequency
@@ -65,11 +76,11 @@ namespace MusicPlayer
             Frequency = fr;
 
             Write("Duration(in seconds): ");
-            if (!int.TryParse(ReadLine(), out int dur))
+            if (!float.TryParse(ReadLine(), out float dur))
             {
                 throw new Exception("Input(): Invalid value for duration");
             }
-            Duration = dur * 1000;
+            Duration = (int)(dur * 1000);
         }
 
         public override string ToString()

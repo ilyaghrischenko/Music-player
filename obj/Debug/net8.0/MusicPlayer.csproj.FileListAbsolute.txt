@@ -12,3 +12,4 @@ C:\github\MusicPlayer\obj\Debug\net8.0\refint\MusicPlayer.dll
 C:\github\MusicPlayer\obj\Debug\net8.0\MusicPlayer.pdb
 C:\github\MusicPlayer\obj\Debug\net8.0\MusicPlayer.genruntimeconfig.cache
 C:\github\MusicPlayer\obj\Debug\net8.0\ref\MusicPlayer.dll
+C:\github\MusicPlayer\obj\Debug\net8.0\MusicPlayer.sourcelink.json

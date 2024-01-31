@@ -6,20 +6,22 @@ namespace MusicPlayer
     {
         static void Main(string[] args)
         {
-            try
-            {
-                MusicPlayer music_player = new MusicPlayer();
-                music_player.Input();
-                music_player.PlaySound();
-            }
-            catch (ArgumentException ex)
-            {
-                WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                WriteLine(ex.Message);
-            }
+            NoteSequence noteSequence = new NoteSequence();
+            noteSequence.AddNote(new Note(NoteFrequencies.G, NoteDuration.Half));
+            noteSequence.AddNote(new Note(NoteFrequencies.A, NoteDuration.Eight));
+            noteSequence.AddNote(new Note(NoteFrequencies.B, NoteDuration.Eight));
+            noteSequence.AddNote(new Note(NoteFrequencies.A, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note(NoteFrequencies.G, NoteDuration.HalfWithPoint));
+            noteSequence.AddNote(new Note(NoteFrequencies.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note(NoteFrequencies.G, NoteDuration.Half));
+            noteSequence.AddNote(new Note(NoteFrequencies.A, NoteDuration.Eight));
+            noteSequence.AddNote(new Note(NoteFrequencies.B, NoteDuration.Eight));
+            noteSequence.AddNote(new Note(NoteFrequencies.A, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note(NoteFrequencies.G, NoteDuration.HalfWithPoint));
+            noteSequence.AddNote(new Note(NoteFrequencies.E, NoteDuration.Quarter));
+
+            MusicPlayer musicPlayer = new MusicPlayer(noteSequence);
+            musicPlayer.Play();
         }
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-
+//TODO: create a note tones, reverse noteSequence
 public enum NoteFrequencies
 {
     C = 131,
@@ -15,102 +16,61 @@ public enum NoteFrequencies
     A = 220,
     B = 247
 }
+public enum NoteDuration
+{
+    WholeWithPoint = 6000,
+    Whole = 4000,
+    HalfWithPoint = 3000,
+    Half = 2000,
+    QuarterWithPoint = 1500,
+    Quarter = 1000,
+    EightWithPoint = 750,
+    Eight = 500,
+    SixthWithPoint = 375,
+    Sixth = 250,
+}
+
+public class Note(NoteFrequencies frequency, NoteDuration duration)
+{
+    public int _frequency { get; set; } = (int)frequency;
+    public int _duration { get; set; } = (int)duration;
+}
 
 namespace MusicPlayer
 {
-    public class MusicPlayer
+    public class NoteSequence()
     {
-        private int[] frequencies;
-        private int[] duration;
-
-        public MusicPlayer()
+        public List<Note> _notes { get; } = new List<Note>();
+        public void AddNote(Note note)
         {
-            frequency = 1000;
-            duration = 1000;
+            _notes.Add(note);
         }
-        /// <summary>
-        /// 1 value - frequency in hertz, 2 - duration in seconds
-        /// </summary>
-        public MusicPlayer(int frequency, float duration)
+        public void RemoveNote(Note note) 
         {
-            this.frequency = frequency;
-            this.duration = (int)(duration * 1000);
+            _notes.Remove(note);
         }
-
-        public int Frequency
+        public void Clear() 
         {
-            get { return frequency; }
-            set
+            _notes.Clear();
+        }
+    }
+    public class MusicPlayer(NoteSequence noteSequence)
+    {
+        private readonly NoteSequence _noteSequence = noteSequence;
+
+        public void Play()
+        {
+            if (!checkOS()) throw new Exception("PLay(): your OS does not support this action");
+
+            foreach(var item in _noteSequence._notes)
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Invalid frequency argument!");
-                }
-                frequency = value;
+                Beep(item._frequency, item._duration);
             }
         }
-        public int Duration
+        private bool checkOS()
         {
-            get { return duration; }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("Invalid duration argument!");
-                }
-                duration = value;
-            }
-        }
-
-        public void Show()
-        {
-            WriteLine($"Frequency: {frequency} | Duration: {duration}\n");
-        }
-        public void Input()
-        {
-            Write("Frequency(in hertz): ");
-            if (!int.TryParse(ReadLine(), out int fr))
-            {
-                throw new Exception("Input(): Invalid value for frequency");
-            }
-            Frequency = fr;
-
-            Write("Duration(in seconds): ");
-            if (!float.TryParse(ReadLine(), out float dur))
-            {
-                throw new Exception("Input(): Invalid value for duration");
-            }
-            Duration = (int)(dur * 1000);
-        }
-
-        public override string ToString()
-        {
-            return $"{Frequency} {Duration}";
-        }
-        public override bool Equals(object? obj)
-        {
-            if (obj == null) return false;
-            if (obj.GetType() != GetType()) return false;
-
-            var other = (MusicPlayer)obj;
-            return this.ToString() == other.ToString();
-        }
-        public override int GetHashCode()
-        {
-            return this.ToString().GetHashCode();
-        }
-
-        /// <summary>
-        /// Plays sound at the frequency and duration that is saved in your class
-        /// </summary>
-        public void PlaySound()
-        {
-            OperatingSystem os = Environment.OSVersion;
-            if (os.Platform != PlatformID.Win32NT && os.Platform != PlatformID.Win32Windows)
-            {
-                throw new Exception("PlaySound(): Your operating system does not support this action");
-            }
-            Beep(Frequency, Duration);
+            PlatformID platform = Environment.OSVersion.Platform;
+            return platform == PlatformID.Win32NT || platform == PlatformID.Win32Windows;
         }
     }
 }

@@ -20,7 +20,27 @@ namespace MusicPlayer
         Sixth = 250,
     }
 
-    public enum NoteFrequencies
+    public enum CounterOctave
+    {
+        C = 32,
+        D = 37,
+        E = 41,
+        F = 44,
+        G = 49,
+        A = 55,
+        B = 62
+    }
+    public enum BigOctave
+    {
+        C = 65,
+        D = 74,
+        E = 82,
+        F = 87,
+        G = 98,
+        A = 110,
+        B = 123
+    }
+    public enum SmallOctave
     {
         C = 131,
         D = 148,
@@ -29,5 +49,51 @@ namespace MusicPlayer
         G = 196,
         A = 220,
         B = 247
+    }
+    public enum FirstOctave
+    {
+        C = 262,
+        D = 294,
+        E = 330,
+        F = 349,
+        G = 392,
+        A = 440,
+        B = 494
+    }
+    public enum SecondOctave
+    {
+        C = 523,
+        D = 587,
+        E = 659,
+        F = 698,
+        G = 784,
+        A = 880,
+        B = 988
+    }
+    public enum ThirdOctave
+    {
+        C = 1046,
+        D = 1174,
+        E = 1318,
+        F = 1396,
+        G = 1568,
+        A = 1720,
+        B = 1975
+    }
+    public enum FourthOctave
+    {
+        C = 2093,
+        D = 2349,
+        E = 2637,
+        F = 2793,
+        G = 3136,
+        A = 3440,
+        B = 3951
+    }
+    public enum FiveOctave
+    {
+        C = 4186,
+        D = 4698,
+        E = 5274
     }
 }

@@ -6,29 +6,57 @@ namespace MusicPlayer
     {
         static void Main(string[] args)
         {
-            var noteC = new Note<NoteFrequencies>(NoteFrequencies.C, NoteDuration.Quarter);
-            var noteE = new Note<NoteFrequencies>(NoteFrequencies.E, NoteDuration.Quarter);
-            var noteG = new Note<NoteFrequencies>(NoteFrequencies.G, NoteDuration.Quarter);
-            var noteA = new Note<NoteFrequencies>(NoteFrequencies.A, NoteDuration.Quarter);
-            var noteB = new Note<NoteFrequencies>(NoteFrequencies.B, NoteDuration.Quarter);
-
             var noteSequence = new NoteSequence();
-            noteSequence.AddNote(noteG);
-            noteSequence.AddNote(noteA);
-            noteSequence.AddNote(noteB);
-            noteSequence.AddNote(noteA);
-            noteSequence.AddNote(noteG);
-            noteSequence.AddNote(noteG);
-            noteSequence.AddNote(noteA);
-            noteSequence.AddNote(noteB);
-            noteSequence.AddNote(noteC);
-            noteSequence.AddNote(noteC);
-            noteSequence.AddNote(noteB);
-            noteSequence.AddNote(noteA);
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Quarter));
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.B, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.A, NoteDuration.Eight));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+
+            // Припев
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.Half));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Half));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Half));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Half));
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Quarter));
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Quarter));
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Whole));
+
+            // 2-й куплет
+
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.G, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.E, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.D, NoteDuration.Quarter));
+            noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.C, NoteDuration.Quarter));
 
             var musicPlayer = new MusicPlayer(noteSequence);
-
-            // Play the song
             musicPlayer.Play();
         }
     }

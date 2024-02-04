@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,12 @@ namespace MusicPlayer
 {
     public class NoteSequence()
     {
-        public List<Note> _notes { get; } = new List<Note>();
-        public void AddNote(Note note)
+        public List<dynamic> _notes { get; } = new List<dynamic>();
+        public void AddNote(dynamic note)
         {
             _notes.Add(note);
         }
-        public void RemoveNote(Note note)
+        public void RemoveNote(dynamic note)
         {
             _notes.Remove(note);
         }

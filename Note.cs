@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MusicPlayer
 {
-    public class Note<T>(NoteFrequencies frequency, NoteDuration duration)
+    public class Note<T>(T frequency, NoteDuration duration) where T : Enum
     {
-        public int _frequency { get; set; } = (int)frequency;
-        public int _duration { get; set; } = (int)duration;
+        public int _frequency { get; set; } = Convert.ToInt32(frequency);
+        public int _duration { get; set; } = Convert.ToInt32(duration);
     }
 }

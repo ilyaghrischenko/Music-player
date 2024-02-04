@@ -16,17 +16,20 @@ namespace MusicPlayer
 
         public void Play()
         {
-            if (!checkOS()) throw new Exception("PLay(): your OS does not support this action");
+            CheckOS();
 
-            foreach(var item in _noteSequence._notes)
+            foreach (var item in _noteSequence._notes)
             {
                 Beep(item._frequency, item._duration);
             }
         }
-        private bool checkOS()
+        private void CheckOS()
         {
             PlatformID platform = Environment.OSVersion.Platform;
-            return platform == PlatformID.Win32NT || platform == PlatformID.Win32Windows;
+            if (platform != PlatformID.Win32NT && platform != PlatformID.Win32Windows)
+            {
+                throw new Exception("PLay(): your OS does not support this action");
+            }
         }
     }
 }

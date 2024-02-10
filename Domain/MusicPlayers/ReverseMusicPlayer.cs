@@ -1,16 +1,13 @@
-﻿using MusicPlayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-//TODO: create a note tones, reverse noteSequence
 
 namespace MusicPlayer
 {
-    public class MusicPlayer(NoteSequence noteSequence)
+    public class ReverseMusicPlayer(NoteSequence noteSequence) : IMusicPlayer
     {
         private readonly NoteSequence _noteSequence = noteSequence;
 
@@ -18,7 +15,9 @@ namespace MusicPlayer
         {
             CheckOS();
 
-            foreach (var item in _noteSequence._notes)
+            var reverseList = noteSequence._notes;
+            reverseList.Reverse();
+            foreach (var item in reverseList)
             {
                 Beep(item._frequency, item._duration);
             }

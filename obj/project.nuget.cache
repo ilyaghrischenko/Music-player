@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O2eCP5jMrB1WldCEuV/es9RJA3jlk2uMFcD5DD2yXI5WpxAghnUE8XxrRMVONPZZqaptxGWC7DRsJ8Y+ITETcw==",
+  "dgSpecHash": "xSB+fslpO8Gh29o7rvrJ3rkR1qfdatyszxw4+OgoawnwI9W93o9WD1s8Rv0J7+ZvBqgouSZypNbCG62gLngcxw==",
   "success": true,
-  "projectFilePath": "C:\\github\\MusicPlayer\\MusicPlayer.csproj",
+  "projectFilePath": "C:\\github\\Music-player\\MusicPlayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

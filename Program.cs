@@ -12,7 +12,6 @@ namespace MusicPlayer
 
                 noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.EightWithPoint));
                 noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.EightWithPoint));
-                noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.EightWithPoint));
                 noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.Sixth));
                 noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.SixthWithPoint));
                 noteSequence.AddNote(new Note<FirstOctave>(FirstOctave.F, NoteDuration.Eight));
